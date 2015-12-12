@@ -73,5 +73,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-browserify');
-  grunt.registerTask('default', ['compass', 'browserify', 'concat', 'shell']);
+  grunt.registerTask('default', ['shell', 'compass', 'browserify', 'concat']);
+  grunt.registerTask('assets', ['compass', 'browserify', 'concat']);
 };

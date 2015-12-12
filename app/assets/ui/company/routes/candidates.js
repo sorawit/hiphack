@@ -329,7 +329,7 @@ class CandidateView extends React.Component {
         name: "ศรัณยู ภูษิต",
         position: "Software Developer Intern",
         status: "รอสัมภาษณ์",
-        resume_url: "/public/resumes/gott.pdf",
+        resume_url: "/static/resumes/gott.pdf",
         display_image: "https://scontent-lga3-1.xx.fbcdn.net/hphotos-xla1/v/t1.0-9/10460378_1086650394680517_6853281743052289354_n.jpg?oh=ea315d590ac5e339a241859d43b8ac87&oe=56B4C420",
         recruiter: {
           id: 1,

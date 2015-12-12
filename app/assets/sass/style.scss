@@ -1,0 +1,23 @@
+// Vendor
+@import "vendor/fullcalendar";
+@import "vendor/jquery.dataTables";
+@import "vendor/perfect-scrollbar";
+
+// Modules and Variables
+@import "partials/base";
+
+// Partials
+@import "partials/fonts";
+@import "partials/page";
+@import "partials/buttons";
+@import "partials/rating";
+@import "partials/loader";
+@import "partials/simpleform";
+@import "partials/fullcalendar";
+@import "partials/navbar";
+@import "partials/menubar";
+@import "partials/dashboard";
+@import "partials/interview";
+@import "partials/candidates";
+@import "partials/status_timeline";
+@import "partials/activity_timeline";

@@ -1,0 +1,39 @@
+form.simple-form {
+  margin: 30px auto;
+  padding: 25px;
+  width: 400px;
+  border-radius: 5px;
+  border: $border;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 26px;
+  }
+
+  label {
+    color: $cl-highlight-font;
+    font-weight: 500;
+    input {
+      display: block;
+      width: 100%;
+      border-radius: 5px;
+      border: $border;
+      padding: 3px 10px;
+      font-size: 18px;
+      margin: 5px;
+    }
+    span {
+      padding-left: 10px;
+    }
+  }
+
+  button {
+    padding: 6px 20px;
+    width: 100%;
+    font-size: 20px;
+    margin: 15px 0 5px;
+  }
+
+}

@@ -1,0 +1,76 @@
+nav.main-nav {
+  display: block;
+  width: 100%;
+  font-family: $header-font-family;
+  height: 60px;
+  color: $cl-nav-font;
+  background: $cl-nav-background;
+  position: relative;
+  z-index: 100;
+  border-bottom: $border;
+  @include flex(initial);
+
+  a.logo {
+    height: 60px;
+    line-height: 56px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 26px;
+    color: $cl-nav-font;
+  }
+
+  .links {
+    margin-left: 30px;
+  }
+
+  .link {
+    color: $cl-nav-font;
+    margin-right: 20px;
+    font-weight: 500;
+
+    &.active {
+      color: $cl-nav-font-2;
+    }
+  }
+
+  .notification,
+  .participants,
+  .link {
+    height: 60px;
+    line-height: 60px;
+
+    i {
+      padding: 0 10px 0 30px;
+      color: $cl-nav-font;
+      float: left;
+      line-height: 60px;
+    }
+  }
+
+  .user-links {
+    height: 60px;
+    line-height: 60px;
+    padding: 0 15px;
+    float: right;
+
+    i {
+      padding-left: 10px;
+      color: $cl-nav-font;
+      float: right;
+      line-height: 60px;
+    }
+
+    &:hover {
+      background: rgba($cl-accent, 0.05);
+    }
+
+    .company-logo {
+      height: 100%;
+      float: left;
+      img {
+        height: 26px;
+        margin: 15px 8px 0 0;
+      }
+    }
+  }
+}

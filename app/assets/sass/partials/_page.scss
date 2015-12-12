@@ -1,0 +1,80 @@
+html, body {
+  height: 100%;
+}
+
+body {
+ 	background: $cl-page-background;
+	font-family: $base-font-family;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-size: $base-font-size;
+}
+
+input, textarea, button, select, option {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+}
+
+a:not(.button),
+a:active:not(.button),
+a:visited:not(.button) {
+  color: $cl-highlight-font;
+}
+
+a:hover {
+  color: $cl-highlight-font-active
+}
+
+.page-container {
+  position: relative;
+	color: $cl-base-font;
+  position: relative;
+  @include flex(1);
+  z-index: 0;
+}
+
+.page-container.full {
+  height: 100%;
+  @include flex(1);
+  overflow: scroll;
+}
+
+.page-clear {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background-size: cover;
+  @include display-flex;
+  @include flex-direction(column);
+}
+
+.main-content {
+	overflow: auto;
+}
+
+.container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.fullscreen-container {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.fl-lt {
+  float: left;
+}
+
+.fl-rt {
+  float: right;
+}
+
+.clearfix:after {
+   content: " ";
+   display: block;
+   height: 0;
+   clear: both;
+}

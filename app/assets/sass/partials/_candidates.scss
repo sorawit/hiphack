@@ -1,0 +1,447 @@
+@include keyframes(side-bounce) {
+  0% {
+  	@include transform( translate(0px, 0) );
+  }
+  50% {
+    @include transform( translate(15px, 0) );
+  }
+  100% {
+    @include transform( translate(0px, 0) );
+  }
+}
+
+.candidates {
+  .candidate-explorer {
+    @include display-flex;
+    @include flex-direction(row);
+    height: 100%;
+    width: 100%;
+  }
+
+  .candidate-not-found {
+    width: 100%;
+    text-align: right;
+    padding: 100px 0;
+    font-size: 24px;
+    color: $cl-lighter-font;
+    @include animation(side-bounce 1.3s infinite ease-in-out);
+
+    i {
+      margin: 0 0 2px 10px;
+      vertical-align: middle
+    }
+  }
+
+  .candidate-select {
+    @include display-flex;
+    @include flex-direction(column);
+    border-left: $border;
+    width: 300px;
+    position: fixed;
+    margin-left: -300px;
+    height: 100%;
+    padding-bottom: $main-nav-height;
+
+    .filter {
+      @include flex(initial);
+      position: relative;
+      border-bottom: $border;
+      padding: 7px 0;
+
+      input {
+        width: 100%;
+        padding: 5px 5px 5px 45px;
+        font-weight: 300;
+        border: 0;
+      }
+
+      &:before {
+        content: "\f4a5";
+        font-size: 1.15em;
+        font-family: "Ionicons";
+        position: absolute;
+        top: 12px;
+        left: 18px;
+        color: #ddd;
+      }
+
+      .sort {
+        font-size: 16px;
+        position: absolute;
+        top: 12px;
+        right: 5px;
+        padding: 2px 12px;
+        background: $cl-red;
+        border: 0;
+        color: $cl-highlight-background-font;
+      }
+    }
+
+    .search-results {
+      @include flex(1);
+      padding: 5px 20px 15px 20px;
+      position: relative;
+
+      .candidate-item {
+        margin-top: 10px;
+        padding: 15px 10px 15px 20px;
+        border-radius: 5px;
+        border: $border;
+        border-color: transparent;
+        display: block;
+        color: $cl-base-font;
+
+        .status {
+          margin-bottom: 10px;
+          font-size: 16px;
+          color: $cl-lightest-font;
+          &:before {
+            content: " ";
+            height: 8px;
+            width: 8px;
+            border-radius: 4px;
+            position: relative;
+            display: block;
+            margin-top: 2px;
+            margin-right: 10px;
+            float: left;
+            background: $cl-grey;
+          }
+        }
+
+        .name {
+          @include formal-font;
+        }
+
+        .position {
+          font-size: 18px;
+          margin-top: 3px;
+        }
+
+        &.selected, {
+          border-color: $cl-border;
+        }
+
+        &:not(.selected):hover + &.selected {
+          border: 0;
+        }
+
+        &:not(.selected):hover {
+          border-color: $cl-border;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .candidate-view {
+    @include display-flex;
+    @include flex-direction(row);
+    @include flex(1);
+    margin-right: 300px;
+    height: 100%;
+    padding: 0 40px 0 25px;
+
+    .candidate-info {
+      height: 100%;
+      padding-right: 50px;
+      @include display-flex;
+      @include flex-direction(column);
+      @include flex(1);
+
+      .tab {
+        @include flex(1);
+      }
+    }
+
+    .general-info {
+    	@include display-flex;
+    	@include flex-direction(row);
+      @include flex(initial);
+      margin: 40px 0;
+
+      .display-image {
+        flex: initial;
+        width: 70px;
+        height: 70px;
+        margin-top: 3px;
+        border-radius: 5px;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .info {
+        flex: 1;
+        padding: 0 20px;
+
+        .name h1 {
+          font-size: 32px;
+          margin: 10px 0 0;
+          font-weight: 600;
+        }
+
+        .position {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .tab-container {
+      @include flex(initial);
+      width: 180px;
+      padding-top: 40px;
+
+      .tab-select {
+        @include flex(initial);
+        padding-bottom: 15px;
+
+        ul {
+          li {
+            padding: 8px 10px 8px 0;
+            margin-left: 3px;
+            background-color: transparent;
+            @include transition(background-color 300ms);
+            position: relative;
+
+            a {
+              color: $cl-base-font;
+            }
+
+            i {
+              margin-right: 5px;
+              width: 26px;
+              text-align: center;
+            }
+
+            &.active i {
+              color: $cl-accent;
+            }
+
+            &.active:before {
+              content: "";
+              font-family: Ionicons;
+              color: $cl-accent;
+              font-size: bold;
+              position: absolute;
+              left: -7px;
+            }
+
+            &:not(.active):hover {
+              font-weight: bold;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .recruiter {
+        margin-bottom: 30px;
+
+        h3 {
+          font-weight: bold;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+
+        .display-image {
+          width: 20px;
+          height: 20px;
+          border-radius: 3px;
+          background-position: center;
+          background-size: cover;
+          margin: 0 10px 0 5px;
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+
+      .status {
+        padding: 8px 15px;
+        background: $cl-blue;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 35px;
+      }
+    }
+
+    .tab {
+      position: relative;
+
+      h1 {
+        font-weight: bold;
+        color: $cl-light-font;
+        font-size: 21px;
+        margin-bottom: 10px;
+      }
+
+      &.overview {
+        .status-timeline,
+        .activity-timeline {
+          margin-bottom: 40px;
+        }
+      }
+
+      &.interview {
+
+        .date-select {
+          float: right;
+          position: absolute;
+          top: -5px;
+          right: 0;
+          background: $cl-page-background;
+          border: solid 1px #ddd;
+        }
+        .interview-result {
+          margin-top: 10px;
+        }
+        .info {
+          @include display-flex;
+          @include flex-direction(row);
+          line-height: 20px;
+
+          .label {
+            @include flex(initial);
+            width: 90px;
+            color: $cl-light-font;
+          }
+          .value {
+            @include flex(1);
+            font-weight: 500;
+          }
+        }
+        .questions-container {
+          background: $cl-panel-background;
+          border-top: solid 4px $cl-panel-border;
+          padding: 20px;
+          margin: 15px 0 30px;
+          border-radius: 5px;
+          position: relative;
+
+          .body {
+            @include formal-font;
+            font-size: 15px;
+            line-height: 20px;
+            color: #fff;
+            clear: both;
+            white-space: pre-wrap;
+          }
+
+          .code {
+            height: 180px;
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 5px;
+          }
+
+          .time {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: $cl-blue;
+
+            i {
+              margin-right: 5px;
+            }
+          }
+
+          .question-selector {
+            height: 40px;
+
+            .option {
+              background: rgba(255,255,255,0.3);
+              color: $cl-grey;
+              height: 26px;
+              line-height: 26px;
+              width: 26px;
+              text-align: center;
+              border-radius: 20px;
+              font-weight: bold;
+              cursor: pointer;
+              float: left;
+              margin-right: 5px;
+
+              &.selected {
+                background: $cl-blue;
+                color: $cl-base-font;
+              }
+            }
+          }
+
+        }
+
+        .interview-comments {
+          margin-top: 15px;
+        }
+      }
+
+      &.comment {
+        h1 {
+          margin-bottom: 15px;
+        }
+        .comment {
+          .detail {
+            .rating {
+              display: inline-block;
+            }
+            .desc {
+              display: inline-block;
+              margin-left: 10px;
+              color: $cl-lighter-font;
+            }
+          }
+        }
+      }
+
+      .comment {
+        position: relative;
+        margin: 5px 0 25px;
+
+        .display-image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          border-radius: 5px;
+          margin-right: 20px;
+          width: 40px;
+          height: 40px;
+          background-position: center;
+          background-size: cover;
+        }
+        .detail {
+          width: 100%;
+          padding-left: 55px;
+
+          .user {
+            font-weight: bold;
+            color: $cl-lighter-font;
+          }
+          .rating {
+            margin: 4px 0 10px;
+          }
+          .body {
+            @include formal-font;
+            font-size: 15px;
+            line-height: 20px;
+          }
+        }
+        .desc {
+          font-style: italic;
+        }
+        .input {
+          @include formal-font;
+          font-size: 16px;
+          line-height: 21px;
+          width: 100%;
+          max-width: 100%;
+          min-height: 50px;
+          border: $border;
+          border-radius: 7px;
+          padding: 10px;
+        }
+      }
+
+    }
+  }
+
+}

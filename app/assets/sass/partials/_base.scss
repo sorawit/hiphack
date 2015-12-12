@@ -1,0 +1,12 @@
+// Use Compass ('cause it rocks!)
+@import "compass";
+
+// Base Font
+$base-font-family: 'ThaiSansNeue';
+$header-font-family: 'ThaiSansNeue';
+$base-font-size: 18px;
+
+// Container size
+$main-nav-height: 60px;
+
+@import "modules/all";

@@ -1,0 +1,33 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UI javascript code for HipHack",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "brace": "^0.5.1",
+    "firebase": "^2.3.1",
+    "firepad": "^1.2.0",
+    "history": "^1.11.0",
+    "react": "^0.13.3",
+    "react-ace": "^2.5.0",
+    "react-router": "1.0.0-rc1",
+    "reactify": "^1.1.1"
+  },
+  "repository": {},
+  "browserify": {
+    "transform": [
+      [
+        "reactify",
+        {
+          "es6": true
+        }
+      ]
+    ]
+  }
+}

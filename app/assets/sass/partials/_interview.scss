@@ -1,0 +1,100 @@
+$editor-background: #232127;
+$question-background: #2e2b34;
+
+.editor.ace_editor {
+  height: 100%;
+  width: 100%;
+  background: $editor-background;
+
+  .ace_gutter {
+    background: $editor-background;
+  }
+  .ace_marker-layer .ace_active-line {
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+.coding-interview {
+  @include display-flex;
+  @include flex-direction(row);
+  height: 100%;
+  width: 100%;
+
+  .spacer {
+    @include flex(initial);
+    height: 15px;
+    background: $editor-background;
+  }
+
+  .coding-env {
+    @include flex(1);
+    @include display-flex;
+    @include flex-direction(column);
+    height: 100%;
+
+    .editor {
+      @include flex(1);
+      font-size: 12px;
+    }
+
+    .controls {
+      @include flex(initial);
+      height: 60px;
+      padding: 13px 20px;
+      background: adjust-lightness($editor-background, 2);
+
+      .lang-selector {
+        position: relative;
+        color: $cl-highlight-background-font;
+
+        select {
+          background: none;
+          -webkit-appearance: none;
+          font-size: 20px;
+          padding: 4px 10px;
+          color: $cl-highlight-background-font;
+          option {
+            font-size: 0.8em;
+          }
+        }
+        i {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+        }
+      }
+
+      .button-run {
+        font-size: 20px;
+        background: $cl-green;
+        i {
+          margin-right: 10px;
+          margin-top: 3px;
+          font-size: 0.85em;
+        }
+      }
+    }
+  }
+
+  .question {
+    @include flex(initial);
+    width: 300px;
+    height: 100%;
+    background: $question-background;
+    padding: 30px 25px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    color: $cl-highlight-background-font;
+
+    h3 {
+      color: $cl-nav-font;
+      font-size: 1.3em;
+      margin-bottom: 5px;
+    }
+
+    p {
+      margin-bottom: 25px;
+      line-height: 1.15;
+    }
+  }
+}

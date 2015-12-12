@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+bower_components/
+.sass-cache/
+
+/venv/
+/app/static/js/
+/app/static/css/
+
+*.pyc
+*.swp

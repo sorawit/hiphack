@@ -1,0 +1,42 @@
+.button {
+  font-family: $header-font-family;
+  padding: 3px 15px;
+	background: $cl-button-active-background;
+	color: $cl-button-active-font;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:active {
+    background: $cl-button-active-background-hover;
+  }
+
+  &:hover {
+  	color: $cl-button-active-font;
+  }
+
+  &.invert {
+    background: $cl-button-background;
+  	color: $cl-button-font;
+
+    &.active {
+      background: $cl-button-active-background;
+      color: $cl-button-active-font;
+      &:active {
+        background: $cl-button-active-background-hover;
+      }
+      &:hover {
+      	color: $cl-button-active-font;
+      }
+    }
+
+    &:not(.active):hover {
+      background: $cl-button-background-hover;
+    	color: $cl-button-font;
+    }
+  }
+
+  &.round {
+    border-radius: 20px;
+  }
+}

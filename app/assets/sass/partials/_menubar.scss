@@ -1,0 +1,42 @@
+nav.menu-nav {
+  display: block;
+  width: 100%;
+  font-family: $header-font-family;
+  height: 70px;
+  line-height: 70px;
+  color: $cl-highlight-font;
+  border-bottom: $border;
+
+  h1 {
+    height: 70px;
+    line-height: 68px;
+    font-weight: bold;
+    font-size: 26px;
+    i {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+  }
+
+  .spacer {
+    &:after {
+      content: '';
+      margin: 15px 15px;
+      height: 40px;
+      border-left: $border;
+    }
+  }
+
+  ul.menu {
+    li {
+      float: left;
+      margin: 0 3px;
+    }
+  }
+
+  .create-interview {
+    i {
+      font-size: 0.65em;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+$cl-page-background: #fff !default;
+$cl-grey-background: #fdfdfd !default;
+
+$cl-accent: #dc7e7e !default;
+$cl-red: #f38181 !default;
+$cl-blue: #7bc1f2 !default;
+$cl-green: #b3d787 !default;
+$cl-yellow: #fce38a !default;
+$cl-grey: #e7e7e7;
+
+$cl-border: $cl-grey;
+$cl-border-2: #fff;
+
+$cl-base-font: #333 !default;
+$cl-light-font: #666 !default;
+$cl-lighter-font: #999 !default;
+$cl-lightest-font: #aaa !default;
+
+$cl-nav-background: $cl-page-background !default;
+$cl-nav-font: $cl-lighter-font !default;
+$cl-nav-font-2: $cl-accent !default;
+
+$cl-highlight-font: $cl-accent !default;
+$cl-highlight-font-active: adjust-lightness($cl-highlight-font, -10) !default;
+$cl-highlight-background-font: #fdfdfd !default;
+
+$cl-jumbo-background: $cl-highlight-font !default;
+$cl-jumbo-font: $cl-page-background !default;
+
+$cl-button-active-background: $cl-accent !default;
+$cl-button-active-background-hover: adjust-lightness($cl-button-active-background, -10) !default;
+$cl-button-active-font: #fff !default;
+$cl-button-background: #fff !default;
+$cl-button-background-hover: rgba($cl-button-active-background,  0.2) !default;
+$cl-button-font: $cl-highlight-font !default;
+
+$cl-table-highlight: #fbfbfb;
+
+$cl-panel-background: #4f5051;
+$cl-panel-border: $cl-blue;

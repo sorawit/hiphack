@@ -1,0 +1,32 @@
+{
+  "name": "hiphack",
+  "description": "Hiphack.io repository",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "./bin/dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sorawit/hiphack.git"
+  },
+  "author": "Sorawit Suriyakarn <thepsint@gmail.com>",
+  "contributors": [
+    "Kasi Chonpimai <mnm630848@gmail.com>",
+    "Saranyu Phusit <saranyuph@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://hiphack.io",
+  "dependencies": {
+    "browserify": "^11.2.0",
+    "browserify-shim": "^3.8.10",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^4.0.1",
+    "grunt-contrib-compass": "^1.0.3",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-shell": "^1.1.2",
+    "reactify": "^1.1.1"
+  }
+}

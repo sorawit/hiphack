@@ -1,11 +1,13 @@
 #!/bin/bash
 
-sudo easy_install pip
+pip --version > /dev/null || sudo easy_install pip
+virtualenv --version > /dev/null || sudo pip install virtualenv
 
-(sudo virtualenv venv) || (sudo pip install virtualenv && sudo easy_install pip)
-source venv/bin/activate
+grunt --version > /dev/null || npm install -g grunt-cli
+bower --version > /dev/null || npm install -g bower
+
+source venv/bin/activate || sudo virtualenv venv && source venv/bin/activate
 sudo pip install -r requirements.txt
 
 cd grunt
-npm install
-grunt || (npm install -g grunt-cli && grunt)
+npm install && grunt

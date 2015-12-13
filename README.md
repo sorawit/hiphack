@@ -4,4 +4,4 @@
 `./sync.sh`
 
 ## Whenever you want to run the server
-`./server.sh` and visit 'localhost:9000/'
+`./server.sh` and visit 'localhost:5000/'

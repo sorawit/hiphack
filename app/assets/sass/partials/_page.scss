@@ -30,7 +30,7 @@ a:hover {
 	color: $cl-base-font;
   position: relative;
   @include flex(1);
-  z-index: 0;
+  z-index: 100;
 }
 
 .page-container.full {

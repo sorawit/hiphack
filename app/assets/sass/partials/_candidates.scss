@@ -42,6 +42,14 @@
     height: 100%;
     padding-bottom: $main-nav-height;
 
+    .add-candidate {
+      padding: 15px 20px 0 20px;
+
+      > .button {
+        display: block;
+      }
+    }
+
     .filter {
       @include flex(initial);
       position: relative;
@@ -141,6 +149,7 @@
     margin-right: 300px;
     height: 100%;
     padding: 0 40px 0 25px;
+    z-index: 0;
 
     .candidate-info {
       height: 100%;
@@ -257,9 +266,7 @@
 
       .status {
         padding: 8px 15px;
-        background: $cl-blue;
-        color: #fff;
-        border-radius: 5px;
+        display: block;
         cursor: pointer;
         margin-bottom: 35px;
       }

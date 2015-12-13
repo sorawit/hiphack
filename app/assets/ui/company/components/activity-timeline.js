@@ -14,7 +14,7 @@ class ActivityInterview extends React.Component {
             <div className="detail">
               <div>ผู้สัมภาษณ์</div>
               <div className="interviewer">
-                {this.props.interview.interviewers}
+                {this.props.interview.interviewers.map((i) => i.name).join(', ')}
               </div>
             </div>
             <div className="time">
@@ -67,11 +67,13 @@ class ActivityAdd extends React.Component {
 
 class ActivityTimeline extends React.Component {
   render() {
+    var interview = {interviewers: [{name: "แมวน้ำ สำราญรมณ์"}], time: "45 นาที"}
+    var recruiter = {name: "มนีรัตน์"}
     return (
       <ul className="activity-timeline">
-        <ActivityInterview candidate={this.props.candidate} interview={{interviewers: [{name: "แมวน้ำ สำราญรมณ์"}], time: "45 นาที"}} date="10 พ.ย. 58"/>
-        <ActivityStatusChange candidate={this.props.candidate} recruiter={{name: "มนีรัตน์"}} status="รอสัมภาษณ์" date="22 ต.ค. 58"/>
-        <ActivityAdd candidate={this.props.candidate} recruiter={{name: "มนีรัตน์"}} status="รอสัมภาษณ์" date="7 ต.ค. 58"/>
+        <ActivityInterview candidate={this.props.candidate} interview={interview} date="10 พ.ย. 58"/>
+        <ActivityStatusChange candidate={this.props.candidate} recruiter={recruiter} status="รอสัมภาษณ์" date="22 ต.ค. 58"/>
+        <ActivityAdd candidate={this.props.candidate} recruiter={recruiter} status="รอสัมภาษณ์" date="7 ต.ค. 58"/>
       </ul>
     )
   }

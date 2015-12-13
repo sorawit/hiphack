@@ -28,7 +28,7 @@ $cl-jumbo-background: $cl-highlight-font !default;
 $cl-jumbo-font: $cl-page-background !default;
 
 $cl-button-active-background: $cl-accent !default;
-$cl-button-active-background-hover: adjust-lightness($cl-button-active-background, -10) !default;
+$cl-button-active-background-hover: adjust-lightness($cl-button-active-background, -5) !default;
 $cl-button-active-font: #fff !default;
 $cl-button-background: #fff !default;
 $cl-button-background-hover: rgba($cl-button-active-background,  0.2) !default;
@@ -38,3 +38,5 @@ $cl-table-highlight: #fbfbfb;
 
 $cl-panel-background: #4f5051;
 $cl-panel-border: $cl-blue;
+
+$cl-modal-background: #eee;

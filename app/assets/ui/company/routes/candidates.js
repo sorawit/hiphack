@@ -6,6 +6,7 @@ const Rating = require('../components/rating')
 const Menubar = require('../components/menubar')
 const StatusTimeline = require('../components/status-timeline')
 const ActivityTimeline = require('../components/activity-timeline')
+const AddCandidateModal = require('../components/add-candidate-modal')
 
 const Ace = require('brace')
 
@@ -243,7 +244,7 @@ class CandidateViewTab extends React.Component {
   render() {
     return (
       <div className="tab-container">
-        <div className="status" onClick={this.onStatusSelect.bind(this)}>
+        <div className="status button blue" onClick={this.onStatusSelect.bind(this)}>
           ดำเนินการ
         </div>
         <div className="recruiter">
@@ -307,7 +308,7 @@ class CandidateNotFound extends React.Component {
     return (
       <div className="candidate-view">
         <div className="candidate-not-found">
-          กรุณาเลือกผู้สมัคร
+          กรุณาเลือกหรือเพิ่มผู้สมัคร
           <i className="ion ion-arrow-right-a" />
         </div>
       </div>
@@ -382,7 +383,8 @@ class CandidateSelect extends React.Component {
     super(props)
     this.state = {
       sortBy: 'id',
-      filter: ''
+      filter: '',
+      addCandidateModalOpen: false
     }
     this.handleSearch = this.handleSearch.bind(this)
   }
@@ -401,6 +403,16 @@ class CandidateSelect extends React.Component {
   onSortChange(event) {
     this.setState({sortBy: event.target.value})
   }
+  openAddCandidateModal() {
+    this.setState({
+      addCandidateModalOpen: true
+    })
+  }
+  closeAddCandidateModal() {
+    this.setState({
+      addCandidateModalOpen: false
+    })
+  }
   render() {
     return (
       <div className="candidate-select">
@@ -411,6 +423,15 @@ class CandidateSelect extends React.Component {
             <option value="position">ตำแหน่ง</option>
             <option value="name">ชื่อ</option>
           </select>
+        </div>
+        <div className="add-candidate">
+          <div className="button large grey" onClick={this.openAddCandidateModal.bind(this)}>
+            <i className="ion ion-android-person-add" />
+            เพิ่มผู้สมัคร
+          </div>
+          <AddCandidateModal open={this.state.addCandidateModalOpen}
+                             onOpen={this.openAddCandidateModal.bind(this)}
+                             onClose={this.closeAddCandidateModal.bind(this)} />
         </div>
         <div className="search-results" ref="search-results">
           {

@@ -43,7 +43,7 @@
     padding-bottom: $main-nav-height;
 
     .add-candidate {
-      padding: 15px 20px 0 20px;
+      padding: 15px 20px 10px 20px;
 
       > .button {
         display: block;
@@ -68,15 +68,15 @@
         font-size: 1.15em;
         font-family: "Ionicons";
         position: absolute;
-        top: 12px;
+        top: 14px;
         left: 18px;
         color: #ddd;
       }
 
       .sort {
-        font-size: 16px;
+        font-size: 14px;
         position: absolute;
-        top: 12px;
+        top: 10px;
         right: 5px;
         padding: 2px 12px;
         background: $cl-red;
@@ -101,7 +101,7 @@
 
         .status {
           margin-bottom: 10px;
-          font-size: 16px;
+          font-size: 13px;
           color: $cl-lightest-font;
           &:before {
             content: " ";
@@ -118,12 +118,13 @@
         }
 
         .name {
-          @include formal-font;
+          font-size: 16px;
         }
 
         .position {
-          font-size: 18px;
-          margin-top: 3px;
+          font-size: 14px;
+          margin-top: 5px;
+          color: $cl-light-font;
         }
 
         &.selected, {
@@ -184,13 +185,15 @@
         padding: 0 20px;
 
         .name h1 {
-          font-size: 32px;
+          font-size: 28px;
           margin: 10px 0 0;
           font-weight: 600;
+          letter-spacing: 0.5px;
         }
 
         .position {
-          font-size: 20px;
+          font-size: 17px;
+          margin-top: 7px;
         }
       }
     }
@@ -230,7 +233,6 @@
               content: "";
               font-family: Ionicons;
               color: $cl-accent;
-              font-size: bold;
               position: absolute;
               left: -7px;
             }
@@ -247,8 +249,7 @@
         margin-bottom: 30px;
 
         h3 {
-          font-weight: bold;
-          font-size: 16px;
+          font-size: 13px;
           margin-bottom: 10px;
         }
 
@@ -276,10 +277,9 @@
       position: relative;
 
       h1 {
-        font-weight: bold;
         color: $cl-light-font;
-        font-size: 21px;
-        margin-bottom: 10px;
+        font-size: 19px;
+        margin-bottom: 20px;
       }
 
       &.overview {
@@ -326,9 +326,8 @@
           position: relative;
 
           .body {
-            @include formal-font;
             font-size: 15px;
-            line-height: 20px;
+            line-height: 22px;
             color: #fff;
             clear: both;
             white-space: pre-wrap;
@@ -361,9 +360,9 @@
               height: 26px;
               line-height: 26px;
               width: 26px;
+              font-size: 13px;
               text-align: center;
               border-radius: 20px;
-              font-weight: bold;
               cursor: pointer;
               float: left;
               margin-right: 5px;
@@ -420,15 +419,13 @@
           padding-left: 55px;
 
           .user {
-            font-weight: bold;
             color: $cl-lighter-font;
           }
           .rating {
-            margin: 4px 0 10px;
+            margin: 0 0 10px;
           }
           .body {
-            @include formal-font;
-            font-size: 15px;
+            font-size: 14px;
             line-height: 20px;
           }
         }
@@ -436,7 +433,6 @@
           font-style: italic;
         }
         .input {
-          @include formal-font;
           font-size: 16px;
           line-height: 21px;
           width: 100%;

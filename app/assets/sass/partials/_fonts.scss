@@ -157,3 +157,13 @@
 	font-weight: 200;
 	font-style: normal;
 }
+
+@font-face {
+    font-family: 'CSChatThai';
+    src: url('../fonts/CSChatThaiUI.eot');
+    src: url('../fonts/CSChatThaiUI.eot') format('embedded-opentype'),
+         url('../fonts/CSChatThaiUI.woff2') format('woff2'),
+         url('../fonts/CSChatThaiUI.woff') format('woff'),
+         url('../fonts/CSChatThaiUI.ttf') format('truetype'),
+         url('../fonts/CSChatThaiUI.svg#CSChatThaiUI') format('svg');
+}

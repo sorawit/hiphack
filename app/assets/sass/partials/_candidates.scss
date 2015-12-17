@@ -36,7 +36,7 @@
     @include display-flex;
     @include flex-direction(column);
     border-right: $border;
-    width: 300px;
+    width: 280px;
     position: fixed;
     height: 100%;
     padding-bottom: $main-nav-height;
@@ -146,7 +146,7 @@
     @include display-flex;
     @include flex-direction(row);
     @include flex(1);
-    margin-left: 300px;
+    margin-left: 280px;
     height: 100%;
     padding: 0 10px 0 50px;
     z-index: 0;
@@ -184,7 +184,7 @@
         padding: 0 20px;
 
         .name h1 {
-          font-size: 28px;
+          font-size: 26px;
           margin: 10px 0 0;
           font-weight: 600;
           letter-spacing: 0.5px;

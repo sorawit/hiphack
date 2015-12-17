@@ -417,7 +417,7 @@ class CandidateSelect extends React.Component {
     return (
       <div className="candidate-select">
         <div className="filter">
-          <input type="text" placeholder="ค้นด้วยชื่อ ตำแหน่ง หรือสถานะ" onChange={this.handleSearch.bind(this)}/>
+          <input type="text" placeholder="ค้นหาผู้สมัคร" onChange={this.handleSearch.bind(this)}/>
           <select className="sort" onChange={this.onSortChange.bind(this)}>
             <option value="status">สถานะ</option>
             <option value="position">ตำแหน่ง</option>
@@ -542,12 +542,12 @@ class CandidateExplorer extends React.Component {
     return (
       this.state.candidateData ?
         <div className="candidate-explorer container">
+          <CandidateSelect ref="select" data={this.state.candidateData} params={this.props.params}/>
           {
             this.props.params.candidateId === undefined ?
             <CandidateNotFound /> :
             <CandidateView ref="view" candidate={this.state.selectedCandidate} params={this.props.params}/>
           }
-          <CandidateSelect ref="select" data={this.state.candidateData} params={this.props.params}/>
         </div>
       :
         <div className="container">

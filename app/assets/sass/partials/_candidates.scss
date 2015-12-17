@@ -35,10 +35,9 @@
   .candidate-select {
     @include display-flex;
     @include flex-direction(column);
-    border-left: $border;
+    border-right: $border;
     width: 300px;
     position: fixed;
-    margin-left: -300px;
     height: 100%;
     padding-bottom: $main-nav-height;
 
@@ -147,14 +146,14 @@
     @include display-flex;
     @include flex-direction(row);
     @include flex(1);
-    margin-right: 300px;
+    margin-left: 300px;
     height: 100%;
-    padding: 0 40px 0 25px;
+    padding: 0 10px 0 50px;
     z-index: 0;
 
     .candidate-info {
       height: 100%;
-      padding-right: 50px;
+      padding-right: 35px;
       @include display-flex;
       @include flex-direction(column);
       @include flex(1);

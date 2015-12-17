@@ -187,7 +187,6 @@
           font-size: 26px;
           margin: 10px 0 0;
           font-weight: 600;
-          letter-spacing: 0.5px;
         }
 
         .position {
@@ -279,6 +278,7 @@
         color: $cl-light-font;
         font-size: 19px;
         margin-bottom: 20px;
+        font-weight: bold;
       }
 
       &.overview {

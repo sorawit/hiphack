@@ -11,11 +11,40 @@
 }
 
 .candidates {
+  @include display-flex;
+  @include flex-direction(column);
+
+  .candidate-overview-bar {
+    height: 60px;
+    @include flex(initial);
+    @include display-flex;
+    @include flex-direction(row);
+
+    .category {
+      min-width: 160px;
+      @include flex(1);
+      text-align: center;
+      border-right: $border;
+      border-bottom: $border;
+
+      .amount {
+        font-size: 18px;
+        color: $cl-lighter-font;
+        margin: 10px 0 5px;
+      }
+    }
+
+    &:first-child {
+      border-left: $border;
+    }
+  }
+
   .candidate-explorer {
     @include display-flex;
     @include flex-direction(row);
-    height: 100%;
+    @include flex(1);
     width: 100%;
+    overflow: scroll;
   }
 
   .candidate-not-found {
@@ -58,7 +87,7 @@
       input {
         width: 100%;
         padding: 5px 5px 5px 45px;
-        font-weight: 300;
+        line-height: 20px;
         border: 0;
       }
 
@@ -90,7 +119,7 @@
       position: relative;
 
       .candidate-item {
-        margin-top: 10px;
+        margin-bottom: 10px;
         padding: 15px 10px 15px 20px;
         border-radius: 5px;
         border: $border;
@@ -117,11 +146,11 @@
         }
 
         .name {
-          font-size: 16px;
+          font-size: 15px;
         }
 
         .position {
-          font-size: 14px;
+          font-size: 13px;
           margin-top: 5px;
           color: $cl-light-font;
         }
@@ -148,7 +177,7 @@
     @include flex(1);
     margin-left: 280px;
     height: 100%;
-    padding: 0 10px 0 50px;
+    padding: 0 0 0 45px;
     z-index: 0;
 
     .candidate-info {
@@ -167,7 +196,7 @@
     	@include display-flex;
     	@include flex-direction(row);
       @include flex(initial);
-      margin: 40px 0;
+      margin: 30px 0 35px;
 
       .display-image {
         flex: initial;
@@ -199,7 +228,7 @@
     .tab-container {
       @include flex(initial);
       width: 180px;
-      padding-top: 40px;
+      padding-top: 30px;
 
       .tab-select {
         @include flex(initial);

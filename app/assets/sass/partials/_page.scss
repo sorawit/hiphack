@@ -35,7 +35,6 @@ a:hover {
 .page-container.full {
   height: 100%;
   @include flex(1);
-  overflow: scroll;
 }
 
 .page-clear {

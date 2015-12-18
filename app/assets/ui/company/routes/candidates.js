@@ -559,10 +559,36 @@ class CandidateExplorer extends React.Component {
   }
 }
 
+class CandidateOverviewBar extends React.Component {
+  render() {
+    var candidateCategories = [
+      { name: "active", display: "ทั้งหมด", amount: 205},
+      { name: "newApplicants", display: "สมัครใหม่", amount: 78},
+      { name: "phoneInterview", display: "รอสัมภาษณ์ผ่านมือถือ", amount: 25},
+      { name: "onSiteInterview", display: "รอสัมภาษณ์ที่สำนักงาน", amount: 45},
+      { name: "offer", display: "รอการตอบรับทำงาน", amount: 42},
+      { name: "archive", display: "ไม่อยู่ในระบบ", amount: 302},
+    ]
+    return (
+      <div className="candidate-overview-bar container">
+        {
+          candidateCategories.map((category) =>
+            <div className="category">
+              <div className="amount">{category.amount}</div>
+              <div className="display">{category.display}</div>
+            </div>
+          )
+        }
+      </div>
+    )
+  }
+}
+
 class Candidates extends React.Component {
   render() {
     return (
       <div className="page-container full candidates">
+        <CandidateOverviewBar />
         <CandidateExplorer params={this.props.params || {}}/>
       </div>
     )

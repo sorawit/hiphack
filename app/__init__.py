@@ -16,7 +16,6 @@ def before_first_request():
 from .api import api
 app.register_blueprint(api)
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def index(path):
+@app.errorhandler(404)
+def index(error):
     return app.send_static_file('index.html')

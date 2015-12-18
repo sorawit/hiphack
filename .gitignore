@@ -9,5 +9,6 @@ bower_components/
 /app/static/js/
 /app/static/css/
 
+*.db
 *.pyc
 *.swp

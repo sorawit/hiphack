@@ -19,23 +19,24 @@
     @include flex(initial);
     @include display-flex;
     @include flex-direction(row);
+    border: $border;
+    border-radius: 5px;
 
     .category {
       min-width: 160px;
       @include flex(1);
       text-align: center;
       border-right: $border;
-      border-bottom: $border;
 
       .amount {
-        font-size: 18px;
+        font-size: 17px;
         color: $cl-lighter-font;
         margin: 10px 0 5px;
       }
-    }
 
-    &:first-child {
-      border-left: $border;
+      &:last-child {
+        border-right: 0;
+      }
     }
   }
 
@@ -44,7 +45,7 @@
     @include flex-direction(row);
     @include flex(1);
     width: 100%;
-    overflow: scroll;
+    position: relative;
   }
 
   .candidate-not-found {
@@ -64,11 +65,12 @@
   .candidate-select {
     @include display-flex;
     @include flex-direction(column);
-    border-right: $border;
+    border: $border;
     width: 280px;
-    position: fixed;
-    height: 100%;
-    padding-bottom: $main-nav-height;
+    top: 20px;
+    border-radius: 5px;
+    position: absolute;
+    height: 600px;
 
     .add-candidate {
       padding: 15px 20px 10px 20px;

@@ -4,10 +4,8 @@ nav.main-nav {
   font-family: $header-font-family;
   height: 60px;
   color: $cl-nav-font;
-  background: $cl-nav-background;
   position: relative;
   z-index: 100;
-  border-bottom: $border;
   @include flex(initial);
 
   a.logo {

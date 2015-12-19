@@ -6,7 +6,8 @@ module.exports = () => {
     <Route>
       <Route path="/company" component={require('./routes/page-dashboard')}>
         <Route path="candidates" component={require('./routes/candidates')} >
-          <Route path=":candidateId/:tab" component={require('./routes/candidates')} />
+          <Route path=":category" component={require('./routes/candidates')} />
+          <Route path=":category/:candidateId/:tab" component={require('./routes/candidates')} />
         </Route>
         <Route path="dashboard" component={require('./routes/dashboard')} />
         <Route path="new-candidate" component={require('./routes/new-candidate')} />

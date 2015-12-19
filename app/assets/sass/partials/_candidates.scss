@@ -27,15 +27,32 @@
       @include flex(1);
       text-align: center;
       border-right: $border;
+      background: $cl-overview-bar-background;
+
+      &.active {
+        @include background-image($cl-overview-bar-active-background);
+        color: $cl-overview-bar-active-font;
+      }
+
+      &:not(.active):hover {
+        @include background-image($cl-overview-bar-active-background);
+        color: $cl-overview-bar-active-font;
+        cursor: pointer;
+      }
 
       .amount {
         font-size: 17px;
-        color: $cl-lighter-font;
         margin: 10px 0 5px;
       }
 
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+
       &:last-child {
-        border-right: 0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
       }
     }
   }
@@ -50,14 +67,14 @@
 
   .candidate-not-found {
     width: 100%;
-    text-align: right;
+    text-align: left;
     padding: 100px 0;
-    font-size: 24px;
+    font-size: 20px;
     color: $cl-lighter-font;
     @include animation(side-bounce 1.3s infinite ease-in-out);
 
     i {
-      margin: 0 0 2px 10px;
+      margin: 0 10px 2px 0;
       vertical-align: middle
     }
   }
@@ -179,7 +196,7 @@
     @include flex(1);
     margin-left: 280px;
     height: 100%;
-    padding: 0 0 0 45px;
+    padding: 10px 0 0 45px;
     z-index: 0;
 
     .candidate-info {
@@ -251,6 +268,7 @@
             i {
               margin-right: 5px;
               width: 26px;
+              font-size: 17px;
               text-align: center;
             }
 

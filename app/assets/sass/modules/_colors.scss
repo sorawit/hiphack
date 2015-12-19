@@ -4,6 +4,7 @@ $cl-grey-background: #fdfdfd !default;
 $cl-accent: #dc7e7e !default;
 $cl-red: #f38181 !default;
 $cl-blue: #7bc1f2 !default;
+$cl-blue-font: #35a0eb !default;
 $cl-green: #b3d787 !default;
 $cl-yellow: #fce38a !default;
 $cl-grey: #e7e7e7;
@@ -18,7 +19,7 @@ $cl-lightest-font: #999 !default;
 
 $cl-nav-background: $cl-grey-background !default;
 $cl-nav-font: $cl-lighter-font !default;
-$cl-nav-font-2: $cl-accent !default;
+$cl-nav-font-2: $cl-blue-font !default;
 
 $cl-highlight-font: $cl-accent !default;
 $cl-highlight-font-active: adjust-lightness($cl-highlight-font, -10) !default;
@@ -38,5 +39,9 @@ $cl-table-highlight: #fbfbfb;
 
 $cl-panel-background: #4f5051;
 $cl-panel-border: $cl-blue;
+
+$cl-overview-bar-background: #fafafa;
+$cl-overview-bar-active-background: linear-gradient($cl-blue, adjust-lightness($cl-blue, -7));
+$cl-overview-bar-active-font: #fff;
 
 $cl-modal-background: $cl-page-background;

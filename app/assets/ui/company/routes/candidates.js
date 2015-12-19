@@ -231,7 +231,7 @@ class CandidateViewTab extends React.Component {
     var activeClass = (tab === this.props.params.tab ? "active" : "")
     return (
       <li className={"tab-container "+activeClass}>
-        <Link to={`/company/candidates/${this.props.params.candidateId}/${tab}`}>
+        <Link to={`/company/candidates/${this.props.params.category}/${this.props.params.candidateId}/${tab}`}>
           <i className={icon ? icon : ""} />
           {text}
         </Link>
@@ -308,8 +308,8 @@ class CandidateNotFound extends React.Component {
     return (
       <div className="candidate-view">
         <div className="candidate-not-found">
+          <i className="ion ion-arrow-left-a" />
           กรุณาเลือกหรือเพิ่มผู้สมัคร
-          <i className="ion ion-arrow-right-a" />
         </div>
       </div>
     )
@@ -363,7 +363,7 @@ class CandidateSelectItem extends React.Component {
     var candidate = this.props.candidate
     var className = "candidate-item" + (this.props.selected ? " selected" : "")
     return (
-      <Link to={`/company/candidates/${candidate.id}/overview`} className={className}>
+      <Link to={`/company/candidates/${this.props.params.category}/${candidate.id}/overview`} className={className}>
         <div className="status">
           { candidate.status }
         </div>
@@ -437,7 +437,8 @@ class CandidateSelect extends React.Component {
           {
             this.filteredAndSortedCandidates().map(
               candidate => <CandidateSelectItem candidate={candidate}
-                                                selected={candidate.id == this.props.params.candidateId} />
+                                                selected={candidate.id == this.props.params.candidateId}
+                                                params={this.props.params} />
             )
           }
         </div>
@@ -563,20 +564,23 @@ class CandidateOverviewBar extends React.Component {
   render() {
     var candidateCategories = [
       { name: "active", display: "ทั้งหมด", amount: 205},
-      { name: "newApplicants", display: "สมัครใหม่", amount: 78},
-      { name: "phoneInterview", display: "รอสัมภาษณ์ผ่านมือถือ", amount: 25},
-      { name: "onSiteInterview", display: "รอสัมภาษณ์ที่สำนักงาน", amount: 45},
+      { name: "follow", display: "ติดตาม", amount: 45},
+      { name: "new", display: "สมัครใหม่", amount: 78},
+      { name: "phone-interview", display: "รอสัมภาษณ์ผ่านมือถือ", amount: 25},
+      { name: "on-site-interview", display: "รอสัมภาษณ์ที่สำนักงาน", amount: 45},
       { name: "offer", display: "รอการตอบรับทำงาน", amount: 42},
       { name: "archive", display: "ไม่อยู่ในระบบ", amount: 302},
     ]
+    var currentCategory = this.props.params.category
     return (
       <div className="candidate-overview-bar container">
         {
           candidateCategories.map((category) =>
-            <div className="category">
+            <Link className={"category" + (currentCategory === category.name ? " active" : "")}
+                  to={`/company/candidates/${category.name}`} >
               <div className="amount">{category.amount}</div>
               <div className="display">{category.display}</div>
-            </div>
+            </Link>
           )
         }
       </div>
@@ -588,7 +592,7 @@ class Candidates extends React.Component {
   render() {
     return (
       <div className="page-container full candidates">
-        <CandidateOverviewBar />
+        <CandidateOverviewBar params={this.props.params || {}}/>
         <CandidateExplorer params={this.props.params || {}}/>
       </div>
     )

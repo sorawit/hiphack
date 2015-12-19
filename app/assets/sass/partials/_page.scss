@@ -17,11 +17,11 @@ input, textarea, button, select, option {
 a:not(.button),
 a:active:not(.button),
 a:visited:not(.button) {
-  color: $cl-highlight-font;
+  color: inherit;
 }
 
 a:hover {
-  color: $cl-highlight-font-active
+  color: inherit;
 }
 
 .page-container {

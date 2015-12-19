@@ -12,11 +12,11 @@ class Navbar extends React.Component {
             Hiphack
           </Link>
           <div className="fl-lt links">
-            <Link className="link active" to="/company/candidates">
-              ผู้สมัครทั้งหมด
+            <Link className="link active" to="/company/candidates/active">
+              ผู้สมัคร
             </Link>
             <Link className="link" to="/company/candidates">
-              ตารางการสัมภาษณ์
+              ปฏิทิน
             </Link>
             <Link className="link" to="/company/candidates">
               คลังโจทย์

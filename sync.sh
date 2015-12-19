@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 pip --version > /dev/null || sudo easy_install pip
 virtualenv --version > /dev/null || sudo pip install virtualenv

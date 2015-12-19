@@ -4,4 +4,4 @@
 `./sync.sh`
 
 ## Whenever you want to run the server
-`./server.sh` and visit 'localhost:5000/'
+`./dev.sh` and visit 'localhost:5000/company/candidates'

@@ -8,9 +8,6 @@ class UserLinks extends React.Component {
   render() {
     return (
       <div className="user-links">
-        <div className="company-logo">
-          <img src="/static/images/hippo.png" />
-        </div>
         <div className="fl-lt">
           นารีรักย์ สมานฉันท์
           <i className="ion ion-ios-arrow-down" />

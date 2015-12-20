@@ -3,11 +3,32 @@ $cl-grey-background: #fdfdfd !default;
 
 $cl-accent: #dc7e7e !default;
 $cl-red: #f38181 !default;
+$cl-red-alt: #f38194 !default;
+$cl-yellow: #ffc70d !default;
+$cl-yellow-alt: #ffb30d !default;
+$cl-purple:#cc33bf !default;
+$cl-purple-alt:#b333cc !default;
 $cl-blue: #7bc1f2 !default;
-$cl-blue-font: #35a0eb !default;
-$cl-green: #b3d787 !default;
-$cl-yellow: #fce38a !default;
+$cl-blue-alt: #7badf2 !default;
+$cl-green-blue: #03d6c5 !default;
+$cl-green-blue-alt: #03d6b3 !default;
+$cl-green: #0cf363 !default;
+$cl-green-alt: #0cd563 !default;
+$cl-dark: #999999 !default;
+$cl-dark-alt: #777777 !default;
 $cl-grey: #e7e7e7;
+
+
+$cl-blue-font: #35a0eb !default;
+
+$cl-status-active: linear-gradient($cl-red,$cl-red-alt);
+$cl-status-follow: linear-gradient($cl-yellow,$cl-yellow-alt);
+$cl-status-new: linear-gradient($cl-purple,$cl-purple-alt);
+$cl-status-phone-interview: linear-gradient($cl-blue,$cl-blue-alt);
+$cl-status-on-site-interview: linear-gradient($cl-green-blue,$cl-green-blue-alt);
+$cl-status-offer: linear-gradient($cl-green,$cl-green-alt);
+$cl-status-archive: linear-gradient($cl-dark,$cl-dark-alt);
+
 
 $cl-border: $cl-grey;
 $cl-border-2: #fff;
@@ -41,7 +62,7 @@ $cl-panel-background: #4f5051;
 $cl-panel-border: $cl-blue;
 
 $cl-overview-bar-background: #fafafa;
-$cl-overview-bar-active-background: linear-gradient($cl-blue, adjust-lightness($cl-blue, -7));
+$cl-overview-bar-active-background: linear-gradient(#fafafa, #ececec, #efefef);
 $cl-overview-bar-active-font: #fff;
 
 $cl-modal-background: $cl-page-background;

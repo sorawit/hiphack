@@ -25,24 +25,45 @@
     .category {
       min-width: 160px;
       @include flex(1);
-      text-align: center;
+      text-align: left;
+      padding-left: 15px;
       border-right: $border;
+      position: relative;
       background: $cl-overview-bar-background;
 
-      &.active {
+      &.selected,
+      &:hover {
         @include background-image($cl-overview-bar-active-background);
-        color: $cl-overview-bar-active-font;
       }
 
-      &:not(.active):hover {
-        @include background-image($cl-overview-bar-active-background);
-        color: $cl-overview-bar-active-font;
-        cursor: pointer;
+      &:hover + &.selected {
+        background-image: none;
+      }
+
+      @each $status in $candidate_status_list {
+        $i: index($candidate_status_list, $status);
+        &.#{$status}:before {
+          content: "";
+          position: absolute;
+          height: 14px;
+          width: 14px;
+          border-radius: 4px;
+          top: 11px;
+          left: 15px;
+
+          @include background-image(nth($candidate_status_background_list, $i))
+        }
+
       }
 
       .amount {
-        font-size: 17px;
-        margin: 10px 0 5px;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 10px 0 7px 21px;
+      }
+
+      .status {
+        font-size: 13px;
       }
 
       &:first-child {
@@ -54,6 +75,8 @@
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
       }
+
+
     }
   }
 
@@ -90,7 +113,7 @@
     height: 600px;
 
     .add-candidate {
-      padding: 15px 20px 10px 20px;
+      padding: 10px 15px;
 
       > .button {
         display: block;
@@ -134,12 +157,12 @@
 
     .search-results {
       @include flex(1);
-      padding: 5px 20px 15px 20px;
+      padding: 5px 15px 15px;
       position: relative;
 
       .candidate-item {
         margin-bottom: 10px;
-        padding: 15px 10px 15px 20px;
+        padding: 12px 10px 12px 20px;
         border-radius: 5px;
         border: $border;
         border-color: transparent;
@@ -481,7 +504,7 @@
           font-style: italic;
         }
         .input {
-          font-size: 16px;
+          font-size: 15px;
           line-height: 21px;
           width: 100%;
           max-width: 100%;

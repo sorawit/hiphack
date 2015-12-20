@@ -1,12 +1,16 @@
 const React = require('react')
 const { Link } = require('react-router')
-const Loader = require('../components/loader')
-const Rating = require('../components/rating')
+const Loader = require('ui/company/components/loader')
+const Rating = require('ui/company/components/rating')
 
-const Menubar = require('../components/menubar')
-const StatusTimeline = require('../components/status-timeline')
-const ActivityTimeline = require('../components/activity-timeline')
-const AddCandidateModal = require('../components/add-candidate-modal')
+const Menubar = require('ui/company/components/menubar')
+
+const StatusTimeline = require('ui/company/components/candidates/status-timeline')
+const ActivityTimeline = require('ui/company/components/candidates/activity-timeline')
+const AddCandidateModal = require('ui/company/components/candidates/add-candidate-modal')
+
+const Translation = require('ui/translation/translation')
+const T = new Translation('company.routes.candidates')
 
 const Ace = require('brace')
 
@@ -14,9 +18,9 @@ class OverviewTab extends React.Component {
   render() {
     return (
       <div className="tab overview">
-        <h1>สถานะปัจจุบัน</h1>
+        <h1>{T.get('OverviewTab.currentStatus' /* Current Status */)}</h1>
         <StatusTimeline />
-        <h1>บันทึกกิจกรรมล่าสุด</h1>
+        <h1>{T.get('OverviewTab.activities' /* Activities */)}</h1>
         <ActivityTimeline candidate={this.props.candidate} />
       </div>
     )
@@ -79,28 +83,6 @@ class CodingInterviewResult extends React.Component {
   }
 }
 
-class InterviewComments extends React.Component {
-  render() {
-    var comments = this.props.comments.map((comment) => {
-      return (
-        <div className="comment">
-          <div className="display-image" style={{backgroundImage: 'url('+comment.user.display_image+')'}} />
-          <div className="detail">
-            <div className="user">{comment.user.name}</div>
-            <div className="rating"><Rating rating={comment.rating} /></div>
-            <div className="body">{comment.body}</div>
-          </div>
-        </div>
-      )
-    })
-    return (
-      <div className="interview-comments">
-        {comments}
-      </div>
-    )
-  }
-}
-
 class InterviewTab extends React.Component {
   constructor(props) {
     super(props)
@@ -155,15 +137,13 @@ class InterviewTab extends React.Component {
   render() {
     return (
       <div className="tab interview">
-        <h1>การสัมภาษณ์</h1>
+        <h1>{T.get('InterviewTab.interviews' /* Interviews */)}</h1>
         <select className="date-select">
           <option>8 ต.ค. 58</option>
           <option>1 พ.ย. 58</option>
           <option>9 พ.ย. 58</option>
         </select>
         <CodingInterviewResult candidate={this.props.candidate} questions={this.state.code_interview_questions}/>
-        <h1>ความเห็น</h1>
-        <InterviewComments candidate={this.props.candidate} comments={this.state.comments}/>
       </div>
     )
   }
@@ -211,13 +191,13 @@ class CommentTab extends React.Component {
     var userDisplayImage = "https://scontent-lga3-1.xx.fbcdn.net/hphotos-xpt1/v/t1.0-9/65609_539354492801591_1108515227_n.jpg?oh=0b22fbeda4b9b74ae49f23f908eec5ea&oe=571EB5DF"
     return (
       <div className="tab comment">
-        <h1>ความคิดเห็นต่อผู้สมัคร</h1>
+        <h1>{T.get('CommentTab.comments' /* Comments */)}</h1>
         <div className="comment">
           <div className="display-image" style={{backgroundImage: 'url('+userDisplayImage+')'}} />
           <div className="detail">
             <div className="rating"><Rating editable={true}/></div>
-            <div className="desc">ให้คะแนนผู้สมัคร</div>
-            <textarea rows="3" className="input" placeholder="เพิ่มความเห็น"/>
+            <div className="desc">{T.get('CommentTab.rateCandidate' /* Rate the candidate */)}</div>
+            <textarea rows="3" className="input" placeholder={T.get('CommentTab.commentHere' /* Your comment here */)}/>
           </div>
         </div>
         {comments}
@@ -245,10 +225,10 @@ class CandidateViewTab extends React.Component {
     return (
       <div className="tab-container">
         <div className="status button blue" onClick={this.onStatusSelect.bind(this)}>
-          ดำเนินการ
+          {T.get('CandidateViewTab.actions' /* Actions */)}
         </div>
         <div className="recruiter">
-          <h3>ผู้รับผิดชอบ</h3>
+          <h3>{T.get('CandidateViewTab.recruiters' /* Recruiters */)}</h3>
           <div>
             <div className="display-image" style={{backgroundImage: 'url('+this.props.candidate.recruiter.display_image+')'}} />
             {this.props.candidate.recruiter.name}
@@ -309,7 +289,7 @@ class CandidateNotFound extends React.Component {
       <div className="candidate-view">
         <div className="candidate-not-found">
           <i className="ion ion-arrow-left-a" />
-          กรุณาเลือกหรือเพิ่มผู้สมัคร
+          {T.get('CandidateNotFound.pleaseSelect' /* Please select a candidate */)}
         </div>
       </div>
     )
@@ -361,12 +341,9 @@ class CandidateView extends React.Component {
 class CandidateSelectItem extends React.Component {
   render() {
     var candidate = this.props.candidate
-    var className = "candidate-item" + (this.props.selected ? " selected" : "")
+    var className = "candidate-item " + candidate.status + (this.props.selected ? " selected" : "")
     return (
       <Link to={`/company/candidates/${this.props.params.category}/${candidate.id}/overview`} className={className}>
-        <div className="status">
-          { candidate.status }
-        </div>
         <div className="name">
           { candidate.name }
         </div>
@@ -417,17 +394,18 @@ class CandidateSelect extends React.Component {
     return (
       <div className="candidate-select">
         <div className="filter">
-          <input type="text" placeholder="ค้นหาผู้สมัคร" onChange={this.handleSearch.bind(this)}/>
+          <input type="text" onChange={this.handleSearch.bind(this)}
+                 placeholder={T.get('CandidateSelect.searchCandidates' /* Search candidates */)} />
           <select className="sort" onChange={this.onSortChange.bind(this)}>
-            <option value="status">สถานะ</option>
-            <option value="position">ตำแหน่ง</option>
-            <option value="name">ชื่อ</option>
+            <option value="status">{T.get('CandidateSelect.status' /* Status */)}</option>
+            <option value="position">{T.get('CandidateSelect.position' /* Position */)}</option>
+            <option value="name">{T.get('CandidateSelect.name' /* Name */)}</option>
           </select>
         </div>
         <div className="add-candidate">
           <div className="button large grey" onClick={this.openAddCandidateModal.bind(this)}>
             <i className="ion ion-android-person-add" />
-            เพิ่มผู้สมัคร
+            {T.get('CandidateSelect.addCandidate' /* Add a candidate */)}
           </div>
           <AddCandidateModal open={this.state.addCandidateModalOpen}
                              onOpen={this.openAddCandidateModal.bind(this)}
@@ -461,73 +439,73 @@ class CandidateExplorer extends React.Component {
           id: 1,
           name: "ศรัณยู ภูษิต",
           position: "Swift Developer",
-          status: "รอสัมภาษณ์"
+          status: "phone-interview์"
         },
         {
           id: 2,
           name: "สรวิทย์​ สุริยกาญจน์",
           position: "Backend Engineer",
-          status: "On-site"
+          status: "on-site-interview"
         },
         {
           id: 3,
           name: "กสิ ชนพิมาย",
           position: "Frontend Engineer",
-          status: "รอสัมภาษณ์"
+          status: "phone-interview์"
         },
         {
           id: 4,
           name: "สาวิตรี อ่ำกลาง",
           position: "Database Engineer",
-          status: "รอการตอบรับ"
+          status: "offer"
         },
         {
           id: 5,
           name: "มนัสนันท์ เทพสุริยะศาสตรา",
           position: "Database Engineer",
-          status: "On-site"
+          status: "on-site-interview"
         },
         {
           id: 6,
           name: "กวินพร ม้าน้ำผ่องใส",
           position: "Android Developer",
-          status: "รอการตอบรับ"
+          status: "offer"
         },
         {
           id: 7,
           name: "วิจิตร ตระการตา",
           position: "Frontend Engineer",
-          status: "รอการตอบรับ"
+          status: "new"
         },
         {
           id: 8,
           name: "ยาวดี ศรีทนได้",
           position: "Frontend Engineer",
-          status: "On-site"
+          status: "on-site-interview"
         },
         {
           id: 9,
           name: "บริโภคชนา ขวัญราษฎ์",
           position: "Android Developer",
-          status: "รอสัมภาษณ์"
+          status: "phone-interview"
         },
         {
           id: 10,
           name: "พิมพ์มาดา แสงสีทอง",
           position: "Backend Engineer",
-          status: "รอการตอบรับ"
+          status: "offer"
         },
         {
           id: 11,
           name: "วานิชญ์ เกษมสราญ",
           position: "Frontend Engineer",
-          status: "รอการตอบรับ"
+          status: "offer"
         },
         {
           id: 12,
           name: "น้ำหยด วงศาเทพหัสดิน",
           position: "Swift Developer",
-          status: "รอการตอบรับ"
+          status: "new"
         }
       ]
 
@@ -563,23 +541,24 @@ class CandidateExplorer extends React.Component {
 class CandidateOverviewBar extends React.Component {
   render() {
     var candidateCategories = [
-      { name: "active", display: "ทั้งหมด", amount: 205},
-      { name: "follow", display: "ติดตาม", amount: 45},
-      { name: "new", display: "สมัครใหม่", amount: 78},
-      { name: "phone-interview", display: "รอสัมภาษณ์ผ่านมือถือ", amount: 25},
-      { name: "on-site-interview", display: "รอสัมภาษณ์ที่สำนักงาน", amount: 45},
-      { name: "offer", display: "รอการตอบรับทำงาน", amount: 42},
-      { name: "archive", display: "ไม่อยู่ในระบบ", amount: 302},
+      { name: "active", amount: 205},
+      { name: "follow", amount: 45},
+      { name: "new", amount: 78},
+      { name: "phone-interview", amount: 25},
+      { name: "on-site-interview", amount: 45},
+      { name: "offer", amount: 42},
+      { name: "archive", amount: 302},
     ]
     var currentCategory = this.props.params.category
+    const TCandidate = new Translation('company.general.candidate')
     return (
       <div className="candidate-overview-bar container">
         {
           candidateCategories.map((category) =>
-            <Link className={"category" + (currentCategory === category.name ? " active" : "")}
+            <Link className={"category " + category.name + (currentCategory === category.name ? " selected" : "")}
                   to={`/company/candidates/${category.name}`} >
               <div className="amount">{category.amount}</div>
-              <div className="display">{category.display}</div>
+              <div className="status">{TCandidate.get('status')[category.name]}</div>
             </Link>
           )
         }

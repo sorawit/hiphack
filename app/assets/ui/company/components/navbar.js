@@ -1,6 +1,9 @@
 const React = require('react')
 const { Link } = require('react-router')
 
+const Translation = require('ui/translation/translation')
+const T = new Translation('company.components.navbar')
+
 const UserLinks = require('./user-links')
 
 class Navbar extends React.Component {
@@ -13,13 +16,13 @@ class Navbar extends React.Component {
           </Link>
           <div className="fl-lt links">
             <Link className="link active" to="/company/candidates/active">
-              ผู้สมัคร
+              {T.get('nav.candidates') /* Candidates */}
             </Link>
-            <Link className="link" to="/company/candidates">
-              ปฏิทิน
+            <Link className="link" to="/company/calendar">
+              {T.get('nav.calendar') /* Calendar */}
             </Link>
-            <Link className="link" to="/company/candidates">
-              คลังโจทย์
+            <Link className="link" to="/company/problem-sets">
+              {T.get('nav.problem-sets') /* Problem Sets */}
             </Link>
           </div>
           <div className="fl-rt">

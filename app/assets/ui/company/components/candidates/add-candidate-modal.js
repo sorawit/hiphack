@@ -1,5 +1,5 @@
 const React = require('react')
-const Modal = require('./Modal')
+const Modal = require('ui/company/components/modal')
 
 class AddCandidateModal extends Modal {
   renderModal() {

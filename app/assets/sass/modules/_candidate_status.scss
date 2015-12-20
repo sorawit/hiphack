@@ -1,0 +1,20 @@
+$candidate-status-list:
+  active
+  follow
+  new
+  phone-interview
+  on-site-interview
+  offer
+  archive
+;
+
+
+$candidate-status-background-list:
+  $cl-status-active
+  $cl-status-follow
+  $cl-status-new
+  $cl-status-phone-interview
+  $cl-status-on-site-interview
+  $cl-status-offer
+  $cl-status-archive
+;

@@ -59,7 +59,9 @@ module.exports = function(grunt) {
         tasks: ['compass']
       },
       browserify: {
-        files: ['../app/assets/ui/**/*.js'],
+        files: ['../app/assets/ui/company/**/*.js',
+                '../app/assets/ui/candidate/**/*.js',
+                '../app/assets/ui/translation/**/*.js'],
         tasks: ['browserify:dev']
       },
       js_vendor: {

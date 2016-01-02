@@ -1,4 +1,3 @@
-from app import db
-from candidate import Candidate
-from company import Company
-from employee import Employee
+from candidate import *
+from employee import *
+from company import *

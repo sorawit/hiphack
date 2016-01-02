@@ -1,4 +1,4 @@
-''' static server for development purpose. '''
+''' static server only for development purpose. '''
 
 from flask import Flask
 

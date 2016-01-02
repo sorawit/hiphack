@@ -1,19 +1,14 @@
 from flask_restful import Resource, fields, marshal_with
 
-from app.models import Company
-
-company_fields = {
-    'id': fields.Integer,
-    'name': fields.String,
-}
+from app.models import Company, CompanySchema
 
 class CompanyList(Resource):
     route = '/companies'
 
-    @marshal_with(company_fields)
     def get(self):
         ''' Returns the list of all companies. '''
-        return Company.query.all()
+        results = Company.query.all()
+        return CompanySchema(many=True).dump(results).data
 
     def post(self):
         return 'ggja'
